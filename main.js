@@ -7,7 +7,7 @@ const token = 'NjY5MDg0MDM3NzkyNTMwNDMy.XiasEg.XCKT_7TdGtAX1bwmZb2QxJAN0KI';
 const PREFIX = '$';
 
 // Version
-var version = ("0.0.2");
+var version = ("0.0.1");
 
 // Main
 client.on('ready', () => {
@@ -21,37 +21,31 @@ client.on('message', message => {
 })
 
 client.on('message', message => {
-    let args = message.content.substring(PREFIX.length).split(" ");
-    switch (args[0]) {
-        case 'ping':
-            message.channel.sendMessage('yes im here');
-            break;
-        case 'help':
-            message.channel.sendMessage('I only ping rn ');
-            break;
-        case 'source':
-            message.channel.sendMessage('https://github.com/Mioroxi/discord-bot');
-            break;
-        case 'info':
-            if (args[1] === 'version') {
-                message.channel.sendMessage('Version ' + version);
-            } else {
-                message.channel.sendMessage('enter a second argument');
+
+            let args = message.content.substring(PREFIX.length).split(" ");
+
+            switch (args[0]) {
+                case 'ping':
+                    message.channel.sendMessage('yes im here');
+                    break;
+                case 'help':
+                    message.channel.sendMessage('I only ping rn ');
+                    break;
+                case 'source':
+		    message.channel.sendMessage('https://github.com/Mioxoi/discord-bot');
+                    break;
+                case 'info':
+                    if(args[1] === 'version') {
+                        message.channel.sendMessage('Version ' + version);
+                    } else {
+                        message.channel.sendMessage('enter a second argument');
+                    }
                 break;
-            }
-	case 'creator':
-	    message.channel.sendMessage("The glorious hardee-sama, hence my questionable programming.");
-            break;
-	case 'clear':
-            if (!args[1]) return message.reply('Please enter a second argument');
-            message.channel.bulkDelete(args[1]);
-            break;
-        case 'fuck you':
-            message.channel.sendMessage('pls no bully. Q_Q');
-            break;
-	}
+                case 'clear':
+                    if (!args[1]) return message.reply('Please enter a second argument');
+                    message.channel.bulkDelete(args[1]);
+                    break;
+    }
 })
-
-
 
 client.login(token);
