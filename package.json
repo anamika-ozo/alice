@@ -1,11 +1,28 @@
 {
-	"name": "discord-bot",
-	"version": "0.0.1",
-	"description": "",
-	"main": "main.js",
-	"scripts":{
-		"test": "echo \"Error, no test specified.\" && exit 1"
-	},
-	"author": "Mioroxi",
-	"liscence": "ISC"
+  "name": "discord-bot",
+  "version": "0.0.1",
+  "description": "a small test",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error, no test specified.\" && exit 1"
+  },
+  "author": "Mioroxi",
+  "liscence": "ISC",
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mioroxi/discord-bot.git"
+  },
+  "keywords": [
+    "bot",
+    "discord"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mioroxi/discord-bot/issues"
+  },
+  "homepage": "https://github.com/Mioroxi/discord-bot#readme"
 }
