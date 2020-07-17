@@ -1,8 +1,5 @@
-const Discord = require ('discord.js');
-
-var config = require("../static/config.json"),
-    version = require("../package.json").version,
-    client = new Discord.Client();
+var Discord = require ('discord.js'),
+      client = new Discord.Client();
 
 // kick function
 client.on('message', message => {
