@@ -1,15 +1,17 @@
 // this file is just to ensure that the bot connects & works as intended
+
 var Discord = require ('discord.js'), 
-	client = new Discord.Client();
+	client = new Discord.Client( { maxCachedMessages: 10, forceFetchUsers: true} );
 
-var token = require("../static/config.json"), // login token
-	commands = require("./commands.js"),
-	moderation = require("./moderation.js"),
+var moderation = require("./moderation.js"),
 	avatar = require("./avatars.js"),
-
 	// libraries & plugins
 	request = require('request'),
 	chalk = require('chalk');	
+
+const token = require("../static/config.json").token  // login token
+
+
 // prefix for the bot
 const PREFIX = '$';
 
@@ -21,11 +23,7 @@ client.on('ready', () => {
     console.log('The robot is online!');
 })
 
-client.on('message', message => {
-    if (message.content === "H-HEWWO") {
-        message.reply('H-HEWWO FWENB!!!');
-    }
-})
+//== main functionality for the bot ==\\
 
 'use strict';
 
@@ -86,6 +84,5 @@ function execCommand(msg, cmd, suffix, type) {
 		} else return;
 	} catch (err) { console.log(err.stack); }
 }
-
 
 client.login(token);
