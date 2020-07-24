@@ -1,6 +1,6 @@
 {
   "name": "discord-bot",
-  "version": "0.2.1",
+  "version": "0.6.1",
   "description": "discord bot for whatever server i want",
   "main": "src/main.js",
   "scripts": {
@@ -9,9 +9,10 @@
   "author": "Mioroxi",
   "liscence": "ISC",
   "dependencies": {
+    "axios": "^0.19.2",
     "chalk": "^4.1.0",
     "discord.js": "^11.5.1",
-    "prompt": "^1.0.0",
+    "prompt-sync": "^4.2.0",
     "request": "^2.88.2",
     "uws": "^100.0.1"
   },
@@ -20,15 +21,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mioroxi/discord-bot.git"
+    "url": "git+https://gitlab.com/Mioroxi/discord-bot.git"
   },
   "keywords": [
     "bot",
-    "discord"
+    "discord",
+    "discord.js",
+    "jit compiler"
   ],
   "license": "WTFPL",
   "bugs": {
-    "url": "https://github.com/Mioroxi/discord-bot/issues"
+    "url": "https://gitlab.com/Mioroxi/discord-bot/issues"
   },
-  "homepage": "https://github.com/Mioroxi/discord-bot#readme"
+  "homepage": "https://gitlab.com/Mioroxi/discord-bot#readme"
 }
