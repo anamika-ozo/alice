@@ -6,28 +6,27 @@ var Discord = require('discord.js'),
         forceFetchUsers: true
     });
 
+// files to import
 var moderation = require("./moderation.js"),
     avatar = require("./avatars.js"),
-    // libraries & plugins
+
+// libraries & plugins
     request = require('request'),
-    chalk = require('chalk');
+    chalk = require('chalk'),
+    coffee = require ('coffeescript');
 
-const token = require("../static/config.json").token // login token
+/* constants to never change */
+const PREFIX = '$', // prefix for the bot
+	  TOKEN = require("../static/config.json").token, // login token
+	  VERSION = ("../package.json").version; // version
 
-
-// prefix for the bot
-const PREFIX = '$';
-
-// version
-let version = ("../package.json").version;
-
-// Main
+// ready the bot
 client.on('ready', () => {
     console.log(`
     	┌───────────────────────────┐
     	│ 							│
     	│							│
-    	│     the bot is online!    │
+    	│    the bot is online!!    │
     	│							│
     	│							│
     	└───────────────────────────┘
@@ -128,4 +127,4 @@ function execCommand(msg, cmd, suffix, type) {
     }
 }
 
-client.login(token);
+client.login(TOKEN);

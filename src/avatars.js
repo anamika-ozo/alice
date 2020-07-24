@@ -11,7 +11,7 @@ var avatar = {
         cooldown: 3,
         process: function(client, msg, suffix) {
             client.on('message', message => {
-                if (message.content === 'what is my avatar') {
+                if (message.content === `$(PREFIX)avatar`) {
                     message.reply(message.author.displayAvatarURL());
                 }
             });
