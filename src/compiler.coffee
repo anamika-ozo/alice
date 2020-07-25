@@ -1,10 +1,14 @@
+/* static files */
 var config = require("../static/config.json"),
-    main = require("./main.js"),
     server = require("../static/server/server.js"),
+/* main files */
+    main = require("./main.js"),
     PREFIX = require("./main.js").PREFIX,
-    version = require("../package.json").version,
     avatars = require("./avatars.js"),
-    // libraries for compiling
+/* constant variables */
+    version = require("../package.json").version,
+    DOMAIN_NAME = require("../static/config.json").DOMAIN_NAME,
+/* libraries for compiling */
     axios = require ('axios'),
     prompt = require('prompt-sync') ({ sigint: true });
 
@@ -27,18 +31,20 @@ var compiler = {
                                     end
                                     ```
                                 ``);
-                    console.log(`Hey there ${name}`);
+                    console.log("got the code, sending now");
+
+                    function sendCode() {
+                        axios.post('/login', {
+                            firstName: 'Finn',
+                            lastName: 'Williams'
+                        })
+                        .then((response) => {
+                            console.log(response);
+                        },  (error) => {
+                            console.log(error);
+                        });
+                    }
                 }
-
-                const readline = require('readline').createInterface({
-                    input: process.stdin,
-                    output: process.stdout
-                });
-
-                readline.question('Who are you?', name => {
-                    console.log(`Hey there ${name}!`);
-                    readline.close();
-                });console.log('compiler', compiler);
 
 
             });
