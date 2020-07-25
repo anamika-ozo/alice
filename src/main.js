@@ -17,7 +17,7 @@ var moderation = require("./moderation.js"),
 
 /* constants to never change */
 const PREFIX = '$', // prefix for the bot
-	  TOKEN = require("../static/config.json").token, // login token
+	  TOKEN = require("../static/config.json").static.token, // login token
 	  VERSION = ("../package.json").version; // version
 
 // ready the bot

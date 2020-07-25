@@ -1,8 +1,7 @@
 // kick function
 var config = require("../static/config.json"),
     main = require("./main.js"),
-    version = require("../package.json").version,
-    avatars = require("./avatars.js");
+    version = require("../package.json").version;
 
 var mod = {
     "kick": {
