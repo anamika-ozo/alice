@@ -1,4 +1,4 @@
-// this file is just to ensure that the bot connects & works as intended
+// this file is just to ensure that the client connects & works as intended
 
 var Discord = require('discord.js'),
     client = new Discord.Client({
@@ -16,11 +16,11 @@ var moderation = require("./moderation.js"),
     coffee = require ('coffeescript');
 
 /* constants to never change */
-const PREFIX = '$', // prefix for the bot
+const PREFIX = '$', // prefix for the client
 	  TOKEN = require("../static/config.json").static.token, // login token
 	  VERSION = ("../package.json").version; // version
 
-// ready the bot
+// ready the client
 client.on('ready', () => {
     console.log(`
     	┌───────────────────────────┐
@@ -33,7 +33,7 @@ client.on('ready', () => {
     `);
 })
 
-//== main functionality for the bot ==\\
+//== main functionality for the client ==\\
 
 'use strict';
 
@@ -73,12 +73,12 @@ function execCommand(msg, cmd, suffix, type) {
                 else {
                     var now = Date.now();
                     if (now < lastExecTime[cmd][msg.author.id] + (commands.commands[cmd].cooldown * 1000)) {
-                        bot.sendMessage(msg, msg.author.username.replace(/@/g, '@\u200b') + ", you need to *cooldown* (" + Math.round(((lastExecTime[cmd][msg.author.id] + commands.commands[cmd].cooldown * 1000) - now) / 1000) + " seconds)", (e, m) => {
-                            bot.deleteMessage(m, {
+                        client.sendMessage(msg, msg.author.username.replace(/@/g, '@\u200b') + ", you need to *cooldown* (" + Math.round(((lastExecTime[cmd][msg.author.id] + commands.commands[cmd].cooldown * 1000) - now) / 1000) + " seconds)", (e, m) => {
+                            client.deleteMessage(m, {
                                 "wait": 6000
                             });
                         });
-                        if (!msg.channel.isPrivate) bot.deleteMessage(msg, {
+                        if (!msg.channel.isPrivate) client.deleteMessage(msg, {
                             "wait": 10000
                         });
                         return;
@@ -86,9 +86,9 @@ function execCommand(msg, cmd, suffix, type) {
                     lastExecTime[cmd][msg.author.id] = now;
                 }
             }
-            commands.commands[cmd].process(bot, msg, suffix);
+            commands.commands[cmd].process(client, msg, suffix);
             if (!msg.channel.isPrivate && commands.commands[cmd].hasOwnProperty("deleteCommand")) {
-                if (commands.commands[cmd].deleteCommand === true && ServerSettings.hasOwnProperty(msg.channel.server.id) && ServerSettings[msg.channel.server.id].deleteCommands == true) bot.deleteMessage(msg, {
+                if (commands.commands[cmd].deleteCommand === true && ServerSettings.hasOwnProperty(msg.channel.server.id) && ServerSettings[msg.channel.server.id].deleteCommands == true) client.deleteMessage(msg, {
                     "wait": 10000
                 });
             }
@@ -102,12 +102,12 @@ function execCommand(msg, cmd, suffix, type) {
                 else {
                     var now = Date.now();
                     if (now < lastExecTime[cmd][msg.author.id] + (mod.commands[cmd].cooldown * 1000)) {
-                        bot.sendMessage(msg, msg.author.username.replace(/@/g, '@\u200b') + ", you need to *cooldown* (" + Math.round(((lastExecTime[cmd][msg.author.id] + mod.commands[cmd].cooldown * 1000) - now) / 1000) + " seconds)", (e, m) => {
-                            bot.deleteMessage(m, {
+                        client.sendMessage(msg, msg.author.username.replace(/@/g, '@\u200b') + ", you need to *cooldown* (" + Math.round(((lastExecTime[cmd][msg.author.id] + mod.commands[cmd].cooldown * 1000) - now) / 1000) + " seconds)", (e, m) => {
+                            client.deleteMessage(m, {
                                 "wait": 6000
                             });
                         });
-                        if (!msg.channel.isPrivate) bot.deleteMessage(msg, {
+                        if (!msg.channel.isPrivate) client.deleteMessage(msg, {
                             "wait": 10000
                         });
                         return;
@@ -115,16 +115,18 @@ function execCommand(msg, cmd, suffix, type) {
                     lastExecTime[cmd][msg.author.id] = now;
                 }
             }
-            mod.commands[cmd].process(bot, msg, suffix);
+            mod.commands[cmd].process(client, msg, suffix);
             if (!msg.channel.isPrivate && mod.commands[cmd].hasOwnProperty("deleteCommand")) {
-                if (mod.commands[cmd].deleteCommand === true && ServerSettings.hasOwnProperty(msg.channel.server.id) && ServerSettings[msg.channel.server.id].deleteCommands == true) bot.deleteMessage(msg, {
+                if (mod.commands[cmd].deleteCommand === true && ServerSettings.hasOwnProperty(msg.channel.server.id) && ServerSettings[msg.channel.server.id].deleteCommands == true) client.deleteMessage(msg, {
                     "wait": 10000
                 });
             }
         } else return;
     } catch (err) {
-        console.log(err.stack);
+        console.err(err.stack);
+        console.log(substr);
     }
 }
+
 
 client.login(TOKEN);

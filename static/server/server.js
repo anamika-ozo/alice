@@ -20,7 +20,7 @@ function load_rejections(argv) {
         try {
             const {
                 body
-            } = await request(METADATA_NETWORK_INTERFACE_URL, options);
+            } = await request(METADA, TA_NETWORK_INTERFACE_URL, options);
             return body;
         } catch (err) {
             console.log('Error while talking to metadata server, assuming localhost');

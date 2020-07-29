@@ -10,7 +10,6 @@ var config = require("../static/config.json"),
     DOMAIN_NAME = require("../static/config.json").DOMAIN_NAME,
 /* libraries for compiling */
     axios = require ('axios'),
-    prompt = require('prompt-sync') ({ sigint: true });
 
 var compiler = {
     "Elixir": {
@@ -21,7 +20,7 @@ var compiler = {
         process: function(client, msg, suffix) {
             client.on('message', message => {
                 if (message.content === `$(PREFIX)iex`) {
-                    let code = prompt("enter your Elixir code in a code block");
+                    message.reply("enter your Elixir code in a code block");
                     message.reply(`for example;
                                     ````iex
                                     defmodule Hello do
@@ -31,6 +30,8 @@ var compiler = {
                                     end
                                     ```
                                 ``);
+                    message.scan.
+
                     console.log("got the code, sending now");
 
                     function sendCode() {
