@@ -1,5 +1,3 @@
-// this file is just to ensure that the client connects & works as intended
-
 var Discord = require('discord.js'),
     client = new Discord.Client({
         maxCachedMessages: 10,
@@ -11,13 +9,17 @@ var moderation = require("./moderation.js"),
     avatar = require("./avatars.js"),
 
 // libraries & plugins
+    Iconv = require('iconv').Iconv,
     request = require('request'),
     chalk = require('chalk'),
-    coffee = require ('coffeescript');
+    // coffeescript plugin
+    coffee = require ('coffeescript'),
+        // for assigning dates
+    now = Date.now();
 
 /* constants to never change */
 const PREFIX = '$', // prefix for the client
-	  TOKEN = require("../static/config.json").static.token, // login token
+	  TOKEN = require("./static/config.json").static.token, // login token
 	  VERSION = ("../package.json").version; // version
 
 // ready the client
@@ -31,7 +33,7 @@ client.on('ready', () => {
     	│							│
     	└───────────────────────────┘
     `);
-})
+});
 
 //== main functionality for the client ==\\
 
@@ -49,7 +51,7 @@ function embedMessage(title, colour, descroption) {
 
     client.on('message', message => {
         if (message.content === `${PREFIX}embed`) {
-            embedMessage()
+            embedMessage();
         }
     });
 
@@ -71,7 +73,6 @@ function execCommand(msg, cmd, suffix, type) {
                 if (!lastExecTime.hasOwnProperty(cmd)) lastExecTime[cmd] = {};
                 if (!lastExecTime[cmd].hasOwnProperty(msg.author.id)) lastExecTime[cmd][msg.author.id] = new Date().valueOf();
                 else {
-                    var now = Date.now();
                     if (now < lastExecTime[cmd][msg.author.id] + (commands.commands[cmd].cooldown * 1000)) {
                         client.sendMessage(msg, msg.author.username.replace(/@/g, '@\u200b') + ", you need to *cooldown* (" + Math.round(((lastExecTime[cmd][msg.author.id] + commands.commands[cmd].cooldown * 1000) - now) / 1000) + " seconds)", (e, m) => {
                             client.deleteMessage(m, {
@@ -100,7 +101,6 @@ function execCommand(msg, cmd, suffix, type) {
                 if (!lastExecTime.hasOwnProperty(cmd)) lastExecTime[cmd] = {};
                 if (!lastExecTime[cmd].hasOwnProperty(msg.author.id)) lastExecTime[cmd][msg.author.id] = new Date().valueOf();
                 else {
-                    var now = Date.now();
                     if (now < lastExecTime[cmd][msg.author.id] + (mod.commands[cmd].cooldown * 1000)) {
                         client.sendMessage(msg, msg.author.username.replace(/@/g, '@\u200b') + ", you need to *cooldown* (" + Math.round(((lastExecTime[cmd][msg.author.id] + mod.commands[cmd].cooldown * 1000) - now) / 1000) + " seconds)", (e, m) => {
                             client.deleteMessage(m, {

@@ -1,6 +1,6 @@
 ### static files ###
-config = require '../static/config.json'
-server = require '../static/server/server.js'
+config = require './static/config.json'
+server = require './static/server/server.js'
 # main files
 main = require './main.js'
 PREFIX = require 'main.js'.PREFIX
@@ -9,12 +9,8 @@ version = require '../package.json'.version
 DOMAIN_NAME = require '../static/config.json'.static.DOMAIN_NAME
 # libraries
 axios = require 'axios'
-prompt = require 'prompt-sync' #{ sigint: true } 
+prompt = require 'prompt-sync' #{ sigint: true }
 
-class recieve_content
-    request_from_server: (argc, argv) ->
-        
     
 
-
-exports = { run };
+exports = { run }

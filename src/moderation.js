@@ -1,8 +1,7 @@
-// kick function
-var config = require("../static/config.json"),
-    main = require("./main.js"),
+var config = require("./static/config.json"),
     version = require("../package.json").version;
 
+// kick function
 var mod = {
     "kick": {
         desc: "kick a user",
@@ -73,6 +72,6 @@ var mod = {
             });
         }
     }
-}
+};
 
-exports = { mod };
+exports.mod =  mod;
