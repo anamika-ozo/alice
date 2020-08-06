@@ -37,8 +37,6 @@ client.on('ready', () => {
 
 //== main functionality for the client ==\\
 
-'use strict';
-
 // message embed function
 function embedMessage(title, colour, descroption) {
     client.on('message', message => {
@@ -64,6 +62,7 @@ client.on('message', message => {
 });
 
 function execCommand(msg, cmd, suffix, type) {
+    'use strict';
     try {
         commandsProcessed += 1;
         if (type == "normal") {

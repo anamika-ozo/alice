@@ -1,5 +1,5 @@
 var config = require("./static/config.json"),
-    main = require("./main.js");
+    main = require("./index.js");
 
 var avatar = {
     "avatar": {
