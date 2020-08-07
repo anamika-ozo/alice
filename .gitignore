@@ -4,3 +4,4 @@ node_modules/
 .directory
 .jshintrc
 .vscode/
+*./config.json*
