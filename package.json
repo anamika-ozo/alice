@@ -33,11 +33,12 @@
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.1",
     "@babel/preset-flow": "^7.10.4",
-    "coffeescript": "^2.5.1"
+    "coffeescript": "^2.5.1",
+    "flow-bin": "^0.131.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/Mioroxi/discord-bot.git"
+    "url": "git+https://gitlab.com/anamika_ozo/discord-bot.git"
   },
   "keywords": [
     "bot",
@@ -46,7 +47,7 @@
   ],
   "license": "WTFPL",
   "bugs": {
-    "url": "https://gitlab.com/Mioroxi/discord-bot/issues"
+    "url": "https://gitlab.com/anamika_ozo/discord-bot/issues"
   },
-  "homepage": "https://gitlab.com/Mioroxi/discord-bot#readme"
+  "homepage": "https://gitlab.com/anamika_ozo/discord-bot#readme"
 }

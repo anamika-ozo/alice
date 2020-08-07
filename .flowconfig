@@ -1,10 +1,17 @@
 [ignore]
+.*/build/.*
 
 [include]
+/src/
+/static/
+/test/
 
 [libs]
+./lib
 
 [lints]
+ruleA=severityA
+ruleB=severityB
 
 [options]
 

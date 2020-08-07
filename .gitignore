@@ -1,4 +1,4 @@
-/static/server/config.json
+/src/static/config.json
 /static/config.json
 node_modules/
 .directory

@@ -21,7 +21,7 @@ var moderation = require("./moderation.js"),
 
 /* constants to never change */
 const PREFIX = '$', // prefix for the client
-    TOKEN = require("./static/config.json").static.token, // login token
+    TOKEN = require("../static/config.json").static.token, // login token
     VERSION = ("../package.json").version; // version
 
 // ready the client
@@ -125,23 +125,10 @@ function execCommand(msg, cmd, suffix, type) {
         } else return;
     } catch (err) {
         console.err(err.stack);
-        console.log(substr);
+        consoconsole.log(main);
+        le.log(substr);
     }
 }
-
-var main = {
-    "init": {
-        desc: "initialise the bot"
-        process: function (client, message, msg, suffix){
-            first_run.prototype.initialise = function(client) {
-                embedMessage('hi there', 'cyan', "I'm online now! Okarinasai, goushoujin-sama ~!");
-                
-            };
-        }
-    }
-}
-
-
 
 
 client.login(TOKEN);
