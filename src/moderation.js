@@ -76,4 +76,4 @@ var mod = {
     }
 };
 
-exports.mod =  mod;
+exports.mod = mod;

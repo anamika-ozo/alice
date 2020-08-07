@@ -40,7 +40,7 @@ client.on('ready', () => {
 //== main functionality for the client ==\\
 
 // message embed function
-function embedMessage(title, colour, descroption) {
+function embedMessage(title, colour, description) {
     client.on('message', message => {
         const embed = new MessageEmbed()
             .setTitle(title)
@@ -128,6 +128,20 @@ function execCommand(msg, cmd, suffix, type) {
         console.log(substr);
     }
 }
+
+var main = {
+    "init": {
+        desc: "initialise the bot"
+        process: function (client, message, msg, suffix){
+            first_run.prototype.initialise = function(client) {
+                embedMessage('hi there', 'cyan', "I'm online now! Okarinasai, goushoujin-sama ~!");
+                
+            };
+        }
+    }
+}
+
+
 
 
 client.login(TOKEN);

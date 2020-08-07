@@ -13,7 +13,7 @@ var config = require("../static/config.json"),
 /* libraries for compiling */
     axios = require ('axios');
 
-const code = message.user.reply;
+let code = message.user.reply;
 
 function sendCode() {
     axios.post('/login', {
