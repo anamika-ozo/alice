@@ -1,3 +1,4 @@
+# @flow
 config = require '../../static/config.json',
 version = require '../../package.json'.version,
 main = require '../main.js',

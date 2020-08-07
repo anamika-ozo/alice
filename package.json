@@ -4,7 +4,10 @@
   "description": "discord bot for whatever server i want",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error, no test specified.\" && exit 1"
+    "test": "echo \"Error, no test specified.\" && exit 1",
+    "build": "babel src/ -d lib/",
+    "prepublish": "npm run build",
+    "flow": "flow"
   },
   "author": "Mioroxi",
   "liscence": "ISC",
@@ -17,17 +20,19 @@
     "fs": "0.0.1-security",
     "iconv": "^3.0.0",
     "long": "^4.0.0",
+    "node-fetch": "^2.6.0",
     "opusscript": "0.0.7",
     "prism-media": "^1.2.2",
-    "prompt-sync": "^4.2.0",
     "request": "^2.88.2",
     "snekfetch": "^4.0.4",
-    "sodium": "^3.0.2",
     "tweetnacl": "^1.0.3",
     "uws": "^100.0.1",
     "ws": "^7.3.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/preset-flow": "^7.10.4",
     "coffeescript": "^2.5.1"
   },
   "repository": {
@@ -37,8 +42,7 @@
   "keywords": [
     "bot",
     "discord",
-    "discord.js",
-    "jit compiler"
+    "discord.js"
   ],
   "license": "WTFPL",
   "bugs": {

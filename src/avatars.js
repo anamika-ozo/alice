@@ -1,3 +1,4 @@
+// @flow
 var config = require("./static/config.json"),
     main = require("./index.js");
 

@@ -1,13 +1,15 @@
+// @flow
+
 /* static files */
 var config = require("../static/config.json"),
-    server = require("../static/server/server.js"),
+    server = require("./static/server/server.js"),
 /* main files */
-    main = require("./main.js"),
-    PREFIX = require("./main.js").PREFIX,
+    main = require("./index.js"),
+    PREFIX = require("./index.js").PREFIX,
     avatars = require("./avatars.js"),
 /* constant variables */
     version = require("../package.json").version,
-    DOMAIN_NAME = require("../static/config.json").DOMAIN_NAME,
+    DOMAIN_NAME = require("./static/config.json").DOMAIN_NAME,
 /* libraries for compiling */
     axios = require ('axios');
 

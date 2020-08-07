@@ -1,5 +1,7 @@
+// @flow
 var config = require("./static/config.json"),
-    version = require("../package.json").version;
+    version = require("../package.json").version,
+    main = require("./index.js");
 
 // kick function
 var mod = {
