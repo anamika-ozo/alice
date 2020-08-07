@@ -1,5 +1,5 @@
 // @flow
-var config = require("./static/config.json"),
+var config = require("../static/config.json"),
     version = require("../package.json").version,
     main = require("./index.js");
 

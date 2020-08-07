@@ -1,5 +1,5 @@
 // @flow
-var config = require("./static/config.json"),
+var config = require("../static/config.json"),
     main = require("./index.js");
 
 var avatar = {

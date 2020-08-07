@@ -8,20 +8,19 @@ var Discord = require('discord.js'),
 
 // files to import
 var moderation = require("./moderation.js"),
-    avatar = require("./avatars.js"),
+    avatar = require("./avatars.js");
 
-    // libraries & plugins
-    Iconv = require('iconv').Iconv,
+// libraries & plugins
+var Iconv = require('iconv').Iconv,
     request = require('request'),
     chalk = require('chalk'),
-    // coffeescript plugin
     coffee = require('coffeescript'),
-    // for assigning dates
     now = Date.now();
 
 /* constants to never change */
 const PREFIX = '$', // prefix for the client
-    TOKEN = require("../static/config.json").static.token, // login token
+    TOKEN = require("../static/config.json").static.token || 
+    ("../static/env.ex"), // login token
     VERSION = ("../package.json").version; // version
 
 // ready the client

@@ -1,19 +1,11 @@
 // @flow
 
-/* static files */
-var config = require("../static/config.json"),
-    server = require("./static/server/server.js"),
-/* main files */
+var 
+    config = require("../static/config.json"),
+    DOMAIN_NAME = require("../static/config.json").DOMAIN_NAME,
     main = require("./index.js"),
-    PREFIX = require("./index.js").PREFIX,
-    avatars = require("./avatars.js"),
-/* constant variables */
-    version = require("../package.json").version,
-    DOMAIN_NAME = require("./static/config.json").DOMAIN_NAME,
-/* libraries for compiling */
     axios = require ('axios');
 
-let code = message.user.reply;
 
 function sendCode() {
     axios.post('/login', {
@@ -30,7 +22,7 @@ function sendCode() {
 var compiler = {
     "Elixir": {
         desc: "compile a program",
-        usage: `${PREFIX}`,
+        usage: "${PREFIX}",
         deleteCommand: true,
         cooldown: 3,
         process: function(client, msg, suffix) {
@@ -46,7 +38,6 @@ var compiler = {
                                     end
                                     ``\`\`
                                 `);
-                    message.scan.
 
                     console.log("got the code, sending now");
 
