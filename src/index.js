@@ -19,8 +19,10 @@ var Iconv = require('iconv').Iconv,
 
 /* constants to never change */
 const PREFIX = '$', // prefix for the client
-    TOKEN = require("../static/config.json").static.token || 
-    ("../static/env.ex"), // login token
+    TOKEN = require("../static/env.ex".DISCORD_TOKEN ||
+     "../static/config.json".static.token 
+    ), // login token
+    
     VERSION = ("../package.json").version; // version
 
 // ready the client
