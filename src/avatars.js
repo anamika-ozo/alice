@@ -1,5 +1,7 @@
 // @flow
-var config = require("../static/config.json"),
+var config = require("../static/env.ex" || 
+    "../static/config.json"
+    ),
     main = require("./index.js");
 
 var avatar = {

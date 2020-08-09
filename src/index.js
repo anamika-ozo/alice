@@ -19,8 +19,7 @@ var Iconv = require('iconv').Iconv,
 
 /* constants to never change */
 const PREFIX = '$', // prefix for the client
-    TOKEN = require("../static/env.ex".DISCORD_TOKEN ||
-     "../static/config.json".static.token 
+    TOKEN = require("../static/env.ex".DISCORD_TOKEN
     ), // login token
     
     VERSION = ("../package.json").version; // version
@@ -131,5 +130,9 @@ function execCommand(msg, cmd, suffix, type) {
     }
 }
 
+if (!TOKEN) {
+    throw new error ("there's no freaking token dummy..");
+    console.err(error);
+}
 
-client.login(TOKEN);
+client.login(DISCORD_TOKEN);
