@@ -36,6 +36,9 @@
     "coffeescript": "^2.5.1",
     "flow-bin": "^0.131.0"
   },
+  "scripts": {
+    "test": "coffee tests/Cakefile"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://gitlab.com/anamika_ozo/discord-bot.git"
