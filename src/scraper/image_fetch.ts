@@ -1,22 +1,22 @@
 // image_fetch.ts
 
-import cheerio from 'cheerio'
-import Eris from 'eris'
-import request from 'request'
-import url from 'url'
+const express = require('express')
+const {spawn} = require('child_process')
+const app = express()
+const port = 3000
 
-var page_url = 'https://danbooru.donmai.us';
-var results = [];
-
-var target = 'http://localhost:8100?fetch_url=' + encodeURIComponent(page_url);
-request.get(target, function(error, response, body) {
-    var $ = cheerio.load(JSON.parse(body).content);
-
-    $("img").each(function(i, image) {
-        results.push(url.resolve(page_url, $(image).attr('src')));
+app.get('/', (req, res) => {
+    var dataToSend;
+    const python = spawn('python', ['scraper.py']);
+    python.stdout.on('data', function (data) {
+        console.log('Pipe data from python script ...');
+        dataToSend = data.toString();
     });
+    python.on('close', (code) => {
+        console.log(`child process close all stdio with code ${code}`);
+        res.send(dataToSend)
+    });
+    
+})
 
-    Message.channel.send (results)
-});
-
-module.exports = image_fetch
+app.listen(port, () => console.log(`Example app listening on port  ${port}!`))
