@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'rmMessage',
 	desc: 'remove a number of messages',
-	execute(message, args) {
+	execute(message, args)
 		allowed = (
         	msg.member?.permissionsIn(msg.channel)?.has("MANAGE_MESSAGES")
     	)
@@ -32,5 +32,4 @@ module.exports = {
             	"#{msg.author}, I deleted #{amount} messages."
             ]
 			
-	}
 }

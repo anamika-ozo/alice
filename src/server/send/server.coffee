@@ -27,8 +27,6 @@ server =
                     catch (err) 
                         console.log('Error while talking to metadata server, assuming localhost');
                         return 'localhost';
-                    
-                };
             
                 app.get('/', async(req, res, next) => 
                     try 
