@@ -1,2 +1,0 @@
-recv = require '../src/server/recieve.coffee'
-
