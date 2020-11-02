@@ -1,8 +1,15 @@
-/src/static/config.json
-/static/config.json
-node_modules/
+# Authorisation
+auth.json
+env.ex
+
+# Stuff left by the project & OS
+node_modules
 .directory
-.jshintrc
-.vscode/
-*./config.json*
+.vscode
+
+# Gitlab artifacts
 gl-code-quality-report.json
+
+# Code artifacts
+.map
+*.js.map

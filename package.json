@@ -7,9 +7,12 @@
   "author": "Lain1447 <hana19.nf@protonmail.ch>",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.21.0",
+    "cheerio": "^1.0.0-rc.3",
     "coffeescript": "^2.5.1",
     "discord.js": "^12.4.1",
     "eris": "^0.13.3",
+    "request": "^2.88.2",
     "typescript": "^4.0.5"
   }
 }

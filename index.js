@@ -1,11 +1,8 @@
 const Eris = require('eris'),
     fs = require('fs'),
-    TOKEN = require ('./config.json'),
+    TOKEN = require ('./auth.json'),
     client = new Eris(TOKEN.token),
     PREFIX = '$'
-
-import commands from ('src/commands')
-import del_messgaes from ('src/del_messages')
 
 client.on('messageCreate', message = () => {
     if (message.content == `${PREFIX}ping`) {
@@ -15,4 +12,3 @@ client.on('messageCreate', message = () => {
 
 
 client.connect(); console.log('hi')
-

@@ -13,3 +13,12 @@ echo_comand = client.registerCommand("echo", msg, args) =>
         usage: "<text>"
     }
 
+say_hi = client.registerCommand("sayHi", msg, args) =>
+    if msg.contnet == "H-HEWWOO"
+        msg.reply "HEWOOO FWEMBB!"
+    
+    {
+        description: "Make the bot say hi"
+        full_description: "...very enthusiastically"
+        usage: `./docs/sayHi`
+    }
