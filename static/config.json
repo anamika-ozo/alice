@@ -1,0 +1,11 @@
+{
+	"bot settings": {
+		"cooldown": 3,
+		"welcome_message": "hiiiii8i"	// Need to make this changeable with a command
+	},
+
+	"compiler settings": {
+		"c_compiler": "g++" // optionally llvm, gcc, etc
+	}
+	
+}

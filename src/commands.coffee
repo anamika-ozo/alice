@@ -1,7 +1,4 @@
-Eris = require 'eris'
-
 echo_comand = client.registerCommand("echo", msg, args) =>
-
     if args.length == 0
         return "invalid input"
     
@@ -20,5 +17,5 @@ say_hi = client.registerCommand("sayHi", msg, args) =>
     {
         description: "Make the bot say hi"
         full_description: "...very enthusiastically"
-        usage: `./docs/sayHi`
+        usage: "#{doc_path}/sayHi"
     }

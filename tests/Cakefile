@@ -1,0 +1,9 @@
+fs = require 'fs'
+
+option '-o', '--output [DIR]', 'directory for compiled code'
+
+task 'build:parser', 'rebuild the Jison parser', (options) ->
+  require 'jison'
+  code = require('./tests/index').parser.generate()
+  dir  = options.output or 'tests'
+  fs.writeFile "#{dir}/parser.js", code

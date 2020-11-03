@@ -6,6 +6,7 @@ env.ex
 node_modules
 .directory
 .vscode
+yarn-error.log
 
 # Gitlab artifacts
 gl-code-quality-report.json
